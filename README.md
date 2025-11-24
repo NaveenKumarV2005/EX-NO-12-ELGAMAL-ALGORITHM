@@ -24,10 +24,31 @@ To Implement ELGAMAL ALGORITHM
 6. Security: The security of the ElGamal algorithm relies on the difficulty of solving the discrete logarithm problem in a large prime field, making it secure for encryption.
 
 ## Program:
+```
+p = 23        
+g = 5         
+x = 6         
+y = pow(g, x, p)
 
+print("Public Key (p, g, y):", p, g, y)
+print("Private Key x:", x)
+m = 13
+print("\nOriginal Message:", m)
+k = 7
 
+c1 = pow(g, k, p)
+c2 = (m * pow(y, k, p)) % p
+
+print("Encrypted (c1, c2):", (c1, c2))
+s = pow(c1, x, p)         
+s_inv = pow(s, p-2, p)     
+m_dec = (c2 * s_inv) % p
+
+print("Decrypted Message:", m_dec)
+```
 ## Output:
 
+<img width="470" height="152" alt="image" src="https://github.com/user-attachments/assets/530a4709-0119-4aa3-9d9f-d9b6c98928e2" />
 
 ## Result:
 The program is executed successfully.
